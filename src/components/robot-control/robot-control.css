@@ -1,0 +1,312 @@
+/* ---------- Manual control ---------- */
+.manual {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.manual__body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.dpad {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.dpad__row {
+  display: flex;
+  gap: 4px;
+}
+.dpad__key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  touch-action: none;
+}
+.dpad__key:hover:not(:disabled) {
+  color: var(--text);
+}
+.dpad__key[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--bg);
+}
+.dpad__key:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.manual__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+}
+.manual__limit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.manual__info p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.manual__override {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 10px;
+  color: var(--warn);
+  text-align: left;
+}
+.manual__override:hover:not(:disabled) {
+  text-decoration: underline;
+}
+.manual__override--on {
+  color: var(--ok);
+}
+.manual__override:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Nav2 / waypoint configuration panels ---------- */
+.config {
+  gap: 15px;
+}
+.config--route {
+  gap: 13px;
+}
+.config__lifecycle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.config__tip {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--surface-inset);
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.config__tip svg {
+  margin-top: 1px;
+  color: var(--accent);
+}
+.config__feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.config__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.config__row strong {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+.config__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.config__actions-row {
+  display: flex;
+  gap: 8px;
+}
+.config__actions-row .btn {
+  flex: 1;
+  min-width: 0;
+}
+.tone--accent {
+  color: var(--accent);
+}
+.tone--ok {
+  color: var(--ok);
+}
+.tone--warn {
+  color: var(--warn);
+}
+.tone--danger {
+  color: var(--danger);
+}
+.tone--dim {
+  color: var(--text-dim);
+}
+.tone--text {
+  color: var(--text);
+}
+
+/* ---------- Waypoint list ---------- */
+.waypoints {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.waypoint {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 59px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-inset);
+}
+.waypoint--selected {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+.waypoint__select {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+}
+.waypoint > :not(.waypoint__select) {
+  position: relative;
+  pointer-events: none;
+}
+.waypoint__grip {
+  color: var(--text-dim);
+}
+.waypoint__number {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: var(--surface-raised);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+}
+.waypoint--selected .waypoint__number {
+  background: var(--accent);
+  color: var(--bg);
+}
+.waypoint__details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.waypoint__name {
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.waypoint__coords {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+}
+.waypoint__actions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+}
+.waypoint__menu-button {
+  display: flex;
+  padding: 2px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--text-muted);
+  pointer-events: auto;
+}
+.waypoint__menu-button:hover {
+  color: var(--text);
+}
+.waypoint__menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  min-width: 130px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-raised);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.45);
+  pointer-events: auto;
+}
+.waypoint__menu button {
+  padding: 7px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text);
+  text-align: left;
+}
+.waypoint__menu button:hover:not(:disabled) {
+  background: var(--surface-inset);
+}
+.waypoint__menu button:disabled {
+  color: var(--text-dim);
+  cursor: not-allowed;
+}
+.waypoint__menu .waypoint__menu-danger {
+  color: var(--danger);
+}
+.route-summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.route-summary__state {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+}
+.config__loop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+}
